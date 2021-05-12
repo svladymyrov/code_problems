@@ -3,6 +3,12 @@
  * @return {number}
  */
 
+/**
+ * Stats:
+ * minutes - 15
+ * attempts - 1
+ */
+
 function findNumbers(nums) {
   let count = 0;
 
