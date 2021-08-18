@@ -1,22 +1,20 @@
-/**
-  Runtime: 851 ms
-  Memory Usage: 56.6 MB
-*/
-
 class MinStack {
   constructor() {
     this.stack = [];
-    this.minValue = undefined;
+    this.minStack = [];
   }
 
   push(item) {
     this.stack.push(item);
-    this.minValue = this.stack.slice().sort((a, b) => a - b)[0];
+
+    if (!this.minStack.length || this.getMin() >= item) {
+      this.minStack.push(item);
+    }
   }
 
   pop() {
-    if (this.stack.pop() === this.minValue) {
-      this.minValue = this.stack.slice().sort((a, b) => a - b)[0];
+    if (this.stack.pop() === this.getMin()) {
+      this.minStack.pop();
     }
   }
 
@@ -25,7 +23,7 @@ class MinStack {
   }
 
   getMin() {
-    return this.minValue;
+    return this.minStack[this.minStack.length - 1];
   }
 };
 
