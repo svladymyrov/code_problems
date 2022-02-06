@@ -1,0 +1,40 @@
+Given a simple array of objects like so:
+
+id
+tag
+parent
+1
+wazzup
+null
+2
+Vova
+1
+3
+how
+null
+4
+about
+5
+5
+lunch?
+1
+
+
+Passed something like this:  [ { id:1, tag:“wazzup”, parent:null }, { id:2, tag:“Vova”, parent:1}, ….  ],
+
+Map the array to a hash like following nested object:
+{
+    1 : { 
+           2 : { },
+           5 : {  4: { } }  
+     },
+    3 : { }
+}
+
+       Tree Head
+         /            \
+       1              3
+    /      \             
+  2        5
+              \  
+               4 
